@@ -6,7 +6,7 @@
   "scripts": {
     "client": "cd client && yarn start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "server.js",
+    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "heroku-postbuild": "cd client && yarn && yarn run build"
