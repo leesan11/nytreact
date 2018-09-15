@@ -23,16 +23,12 @@ class Search extends Component{
         window.location = link;
     }
 
-    handleAdd = (e)=>{
-        API.addArticle({title:e.target.getAttribute("data")})
-        
-    }
 
 
     renderResults = () => {
         var results = [];
         for(var i =0; i<this.state.results.length;i++){
-            results.push((<div><a>{this.state.results[i][1]}</a><br/><p>{this.state.results[i][2]}</p><button onClick={this.handleAdd} data={this.state.results[i][1]}>add</button></div>))
+            results.push((<div><a>{this.state.results[i][1]}</a><br/><p>{this.state.results[i][2]}</p><button onClick={this.props.handleAdd} data-link={this.state.results[i][0]} data-info={this.state.results[i][2]} data-title={this.state.results[i][1]}>add</button></div>))
         }
         this.setState({renderResults:results})
 

@@ -21,5 +21,11 @@ module.exports = {
     },
     addArticle: function(app){
         app.post("/api/addarticle",(req,res)=>articleController.addArticle(req,res))
+    },
+    getArticles:function(app){
+        app.get("/api/articles",(req,res)=>articleController.getArticles(req,res));
+    },
+    removeArticle:function(app){
+        app.post("/api/removearticle",(req,res)=>articleController.removeArticle(req,res))
     }
 }
